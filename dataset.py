@@ -335,9 +335,12 @@ DATASET_BUILDERS: dict[str, __DatasetBuilder] = {
     ]),
     "rag-datasets/rag-mini-bioasq/queries": __DatasetBuilder([
         lambda dataset : dataset["test"],
-        lambda dataset : dataset.remove_columns(["answer", "relevant_passage_ids"]),
+        lambda dataset : dataset.remove_columns(["answer"]),
+        lambda dataset : dataset.remove_columns(["id"]),
+        lambda dataset : dataset.rename_column("relevant_passage_ids", "doc-id"),
+        # lambda dataset : __add_prefix(dataset, "doc-id", "bio"),
         lambda dataset : dataset.rename_column("question", "text"),
-        lambda dataset : dataset.rename_column("id", "query-id"),
+        # lambda dataset : dataset.rename_column("id", "query-id"),
     ]),
     "rag-datasets/rag-mini-bioasq/test": __DatasetBuilder([
         lambda dataset : dataset["test"],
