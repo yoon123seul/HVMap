@@ -1,1 +1,1 @@
-# HVMap: Efficient Cross-VectorDB Querying for Heterogeneous Embedding Spaces
+# Efficient and Accurate Cross-Vector Database Integration for Heterogeneous Embedding Spaces
